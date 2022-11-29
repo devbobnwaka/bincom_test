@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="">
+            <h3>Polling Unit Name: {{pu.polling_unit_name|upper}}</h3>
+            <div class="row border border-secondary">
+                <div class="col-3 border">
+                  PU Number:
+                </div>
+                <div class="col border">
+                    {{pu.polling_unit_number|upper}}
+                </div>
+            </div>
+            <div class="row border border-secondary">
+                <div class="col-3 border">
+                  PU Unit Desc:
+                </div>
+                <div class="col border">
+                    {{pu.polling_unit_description|upper}}
+                </div>
+            </div>
+            <div class="row border border-secondary">
+                <div class="col-3 border">
+                  Ward:
+                </div>
+                <div class="col border">
+                    {{ward.ward_name|upper}}
+                </div>
+            </div>
+            <div class="row border border-secondary">
+                <div class="col-3 border">
+                  LGA:
+                </div>
+                <div class="col border">
+                    {{lga.lga_name|upper}}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <footer class="container-fluid bg-dark fixed-bottom">
+        <div class="container p-1 text-white text-center">
+            &copy; 2022 
+        </div>
+    </footer>
+
+{% endblock content %}

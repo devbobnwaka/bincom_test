@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="">
+            <h3>LGA Name: {{lga.lga_name|upper}}</h3>
+            <div class="row border border-secondary">
+                <div class="col-3 border">
+                  Total Number of PU's
+                </div>
+                <div class="col border">
+                    {{pu}}
+                </div>
+            </div>
+            <div class="row border border-secondary">
+                <div class="col-3 border">
+                  LGA Desc:
+                </div>
+                <div class="col border">
+                    {{lga.lga_description|upper}}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <footer class="container-fluid bg-dark fixed-bottom">
+        <div class="container p-1 text-white text-center">
+            &copy; 2022 
+        </div>
+    </footer>
+
+{% endblock content %}

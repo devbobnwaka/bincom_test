@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="table-responsive-md border border-secondary rounded p-3">
+            <table class="table table-bordered table-striped caption-top table-hover">
+                <caption>
+                    <div class="d-flex justify-content-between">
+                        All Polling Units 
+                        {% comment %} <a href="create.html" class="border-bottom border-secondary bg-mute">Create +</a> {% endcomment %}
+                    </div>
+                </caption>                        
+                <thead class="table-dark">
+                    <tr>
+                      <th scope="col" style="width: 3%;">#</th>
+                      <th scope="col">PU Name</th>
+                      <th scope="col" style="width: 200px;">PU Number</th>
+                      <th scope="col" style="width: 150px;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for pu in polling_units %}       
+                        <tr>
+                        <th scope="row">{{ forloop.counter0|add:polling_units.start_index  }}</th>
+                        <td>{{ pu.polling_unit_name }}</td>
+                        <td>{{ pu.polling_unit_number }}</td>
+                        <td class="">
+                            <a href="{{pu.uniqueid}}" class="">Veiw detail</a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                    
+                 
+
+                  </tbody>
+            </table>
+            <div class="d-flex justify-content-center align-items-end">
+                <nav aria-label="Page navigation example ">
+                    <ul class="pagination">
+                    {% if polling_units.has_previous %}
+
+                      <li class="page-item">
+                        <a class="page-link text-secondary" href="?page=1" aria-label="Previous">
+                          <span aria-hidden="true">first</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link text-secondary" href="?page={{ polling_units.previous_page_number }}" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                    {% endif %}
+
+                      <li class="page-item"><a class="page-link text-secondary" href="#"><span class="current">
+                        Page {{ polling_units.number }} of {{ polling_units.paginator.num_pages }}.
+                    </span></a></li>
+                      
+                    
+                      {% if polling_units.has_next %}
+                      <li class="page-item">
+                        <a class="page-link text-secondary" href="?page={{ polling_units.next_page_number }}" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link text-secondary" href="?page={{ polling_units.paginator.num_pages }}"aria-label="Next">
+                          <span aria-hidden="true">last</span>
+                        </a>
+                      </li>
+                    {% endif %}
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+    </div>
+    <footer class="container-fluid bg-dark ">
+        <div class="container p-1 text-white text-center">
+            &copy; 2022 
+        </div>
+    </footer>
+
+{% endblock content %}

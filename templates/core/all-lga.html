@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="table-responsive-md border border-secondary rounded p-3">
+            <table class="table table-bordered table-striped caption-top table-hover">
+                <caption>
+                    <div class="d-flex justify-content-between">
+                        All LGA's and the Number of Polling Units it has.
+                        {% comment %} <a href="create.html" class="border-bottom border-secondary bg-mute">Create +</a> {% endcomment %}
+                    </div>
+                </caption>                        
+                <thead class="table-dark">
+                    <tr>
+                      <th scope="col" style="width: 3%;">#</th>
+                      <th scope="col">LGA Name</th>
+                      <th scope="col" style="width: 200px;">LGA DESC</th>
+                      <th scope="col" style="width: 150px;">No. PU's in LGA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        {% for lg in lga %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ lg.lga_name }}</td>
+                            <td>{{ lg.lga_description }}</td>
+                            <td class="">
+                                <a href="{{lg.lga_id}}" class="">Veiw detail</a>
+                            </td>
+                        </tr>
+                        
+                        {% endfor %}
+                    
+                 
+
+                  </tbody>
+            </table>
+
+        </div>
+        
+    </div>
+    <footer class="container-fluid bg-dark ">
+        <div class="container p-1 text-white text-center">
+            &copy; 2022 
+        </div>
+    </footer>
+
+{% endblock content %}
